@@ -14,7 +14,7 @@
 
   const PROJECTS_RAW = [
       {
-      cat: 'finance',
+      cat: 'agentic_llm',
       icon: 'lucide:shield-check',
       type: 'Dashboard',
       title: 'WorthBrain - Multi Agent System',
@@ -51,7 +51,7 @@
     },
 
     {
-      cat: 'healthcare',
+      cat: 'models',
       icon: 'lucide:building-2',
       type: 'Healthcare ML',
       title: 'Consumer Products Pricer Model — Fine-Tuned LLaMA 3.1 8B',
@@ -79,12 +79,12 @@
     },
 
     {
-      cat: 'genai',
+      cat: 'datasets',
       icon: 'lucide:activity',
       type: 'Dataset',
       title: 'Amazon-Pricer-Dataset-v2-0',
       impact: "Outcome: 169K-row supervised e-commerce dataset for LLM price training.",
-      desc: 'Processed and structured Amazon product metadata into prompt-style inputs paired with ground-truth prices. Improved consistency and formatting over amazon-pricer-dataset-v1.',
+      desc: 'Processed and structured Amazon product metadata into prompt-style inputs paired with ground-truth prices, designed for LLM linear regression training. Improved consistency and formatting over my initial version of amazon-pricer-dataset-v1.',
       priority: 13,
       problem:
         'How can raw e-commerce data be cleaned and reshaped into a stable training dataset for text-to-number regression?',
@@ -108,7 +108,7 @@
     },
 
     {
-      cat: 'genai',
+      cat: 'agentic_llm',
       icon: 'lucide:file-text',
       type: 'Dataset',
       title: 'SEO Expert ChatBot (RAG)',
@@ -136,7 +136,7 @@
     },
 
     {
-      cat: 'healthcare',
+      cat: 'agentic_llm',
       icon: 'lucide:stethoscope',
       type: 'ML Pipeline',
       title: 'Airline Customer Service Assistant ',
@@ -164,7 +164,7 @@
     },
 
     {
-      cat: 'finance',
+      cat: 'agentic_llm',
       icon: 'lucide:car',
       type: 'Risk Model',
       title: 'AI Written Text Detector',
@@ -181,7 +181,7 @@
     },
 
     {
-      cat: 'analytics',
+      cat: 'models',
       icon: 'lucide:plug',
       type: 'Dashboard',
       title: 'Pricer-Merged-Model-A-v1',
@@ -198,7 +198,7 @@
     },
 
     {
-      cat: 'analytics',
+      cat: 'datasets',
       icon: 'lucide:plug',
       type: 'Dashboard',
       title: 'Amazon-Pricer-Dataset-v1',
@@ -215,7 +215,25 @@
     },
 
     {
-      cat: 'analytics',
+      cat: 'agentic_llm',
+      icon: 'lucide:plug',
+      type: 'Dashboard',
+      title: 'Minutes of Meeting Generator',
+      impact: "Instantly generated well-structured summary of meeting minutes, converted  from a raw discussion audio file.(mp3 extension)",
+      desc: 'Whisper-1 model transcribes an audio file into text and quantized Llama 3.1 model generates a well structured summary of business meeting minutes.',
+      problem: "How can long, unstructured meeting audio files be converted into structured summaries instantly and conveniently?",
+      stack: ["Python", "OpenAI Whisper-1", "LLaMA 3.1 8B", "HF Transformers", "Gradio"],
+      priority: 8,
+      tags: ['Summarization', 'Productivity Tools', "Audio Transcription LLM"],
+      repo: 'ev-charging-dashboard',
+      hfSpace: "https://example.com",
+      demo: "https://example.com",
+      imageBase: 'EV Charging Dashboard',
+    },
+
+
+    {
+      cat: 'agentic_llm',
       icon: 'lucide:plug',
       type: 'Dashboard',
       title: 'AutoGen Blog Agents (Nested Chat)',
@@ -232,7 +250,7 @@
     },
 
     {
-      cat: 'analytics',
+      cat: 'agentic_llm',
       icon: 'lucide:plug',
       type: 'Dashboard',
       title: 'Business Brochure Generator AI',
@@ -249,7 +267,7 @@
     },
 
     {
-      cat: 'analytics',
+      cat: 'agentic_llm',
       icon: 'lucide:plug',
       type: 'Dashboard',
       title: 'Python Code Optimizer - Python to C++ Converter',
@@ -266,7 +284,7 @@
     },
 
     {
-      cat: 'analytics',
+      cat: 'python_apps',
       icon: 'lucide:plug',
       type: 'Dashboard',
       title: 'Cheapest Flight Deals Alert System',
@@ -283,7 +301,7 @@
     },
 
     {
-      cat: 'analytics',
+      cat: 'python_apps',
       icon: 'lucide:plug',
       type: 'Dashboard',
       title: 'Booking.com Automation Bot',
@@ -300,7 +318,7 @@
     },
 
     {
-      cat: 'analytics',
+      cat: 'python_apps',
       icon: 'lucide:plug',
       type: 'Dashboard',
       title: 'Spotify Automation with Billboard Songs',
@@ -1125,11 +1143,10 @@
 
     static categoryLabel(cat) {
       const map = {
-        healthcare: 'Healthcare',
-        finance: 'Finance & Risk',
-        social: 'Social',
-        genai: 'GenAI & Tools',
-        analytics: 'Analytics',
+        agentic_llm: 'agentic_llm',
+        models: 'models',
+        datasets: 'datasets',
+        python_apps: 'python_apps & Tools',
       };
       return map[cat] || 'Project';
     }
@@ -1188,24 +1205,24 @@
       return out.slice(0, 3);
     }
 
-    static buildImpact({ cat, type, title, desc }) {
-      const t = (type || '').toLowerCase();
-      const text = `${title || ''} ${desc || ''}`.toLowerCase();
-
-      if (text.includes('dashboard')) {
-        return 'Outcome: decision-ready dashboard for monitoring and triage.';
-      }
-      if (t.includes('dataset') || text.includes('dataset')) {
-        return 'Outcome: 169K-row supervised e-commerce dataset for LLM price training.';
-      }
-      if (text.includes('rag') || text.includes('llm') || cat === 'genai') {
-        return 'Outcome: production-oriented GenAI workflow with reliability guardrails.';
-      }
-      if (text.includes('risk') || cat === 'finance') {
-        return 'Outcome: End-to-end agentic system for real-time price discovery and valuation.';
-      }
-      return 'Outcome: Fine-tuned domain-specific LLM model for structured product price estimation as a specialized E-Commerce valuation model.';
-    }
+//    static buildImpact({ cat, type, title, desc }) {
+//      const t = (type || '').toLowerCase();
+//      const text = `${title || ''} ${desc || ''}`.toLowerCase();
+//
+//      if (text.includes('dashboard')) {
+//        return 'Outcome: decision-ready dashboard for monitoring and triage.';
+//      }
+//      if (t.includes('dataset') || text.includes('dataset')) {
+//        return 'Outcome: 169K-row supervised e-commerce dataset for LLM price training.';
+//      }
+//      if (text.includes('rag') || text.includes('llm') || cat === 'genai') {
+//        return 'Outcome: production-oriented GenAI workflow with reliability guardrails.';
+//      }
+//      if (text.includes('risk') || cat === 'finance') {
+//        return 'Outcome: End-to-end agentic system for real-time price discovery and valuation.';
+//      }
+//      return 'Outcome: Fine-tuned domain-specific LLM model for structured product price estimation as a specialized E-Commerce valuation model.';
+//    }
 
     static buildStack({ cat, type, title, desc, repo, tags }) {
       const text = [title, desc, type, repo]
@@ -1610,10 +1627,10 @@
         tags.appendChild(chip);
       });
 
-      const btnContainer = document.createElement("div");
-      btnContainer.className = "p-buttons";
 
       // Buttons on Project Containers
+      const btnContainer = document.createElement("div");
+      btnContainer.className = "p-buttons";
 
       if (project.repo) {
         const gitRepo = document.createElement("a");
@@ -1621,7 +1638,7 @@
         gitRepo.href = project.githubUrl;
         gitRepo.target = "_blank";
         gitRepo.rel = "noopener noreferrer";
-        gitRepo.textContent = 'View Repo';
+        gitRepo.textContent = 'Github';
         btnContainer.appendChild(gitRepo);
       }
 
@@ -1641,17 +1658,16 @@
         demo.href = project.demo;
         demo.target = '_blank';
         demo.rel = 'noopener noreferrer';
-        demo.textContent = 'View Demo';
+        demo.textContent = 'Quick Demo';
         btnContainer.appendChild(demo);
       }
 
-//      a.className = 'btn repo';
-//      a.href = project.githubUrl;
-//      a.target = '_blank';
-//      a.rel = 'noopener noreferrer';
-//      a.textContent = 'View Repo';
+      // Footer Project Container (Tag + Buttons)
+      const projectFooter = document.createElement("div")
+      projectFooter.className = "p-footer";
+      projectFooter.append(tags, btnContainer);
 
-      body.append(h, impact, d, tags, btnContainer);
+      body.append(h, impact, d, projectFooter);
       card.append(typeBar, top, body);
 
       const openDetails = () => this.modal.open(project);
