@@ -1515,13 +1515,12 @@
       this.typewriter = new Typewriter({
         el: Dom.id('heroLoop'),
         lines: [
-          'Production AI, from data to deployment.',
-          'Deployable APIs with FastAPI and Docker.',
-          'Dashboards that drive operational decisions.',
-          'Monitoring, alerts, and model health checks.',
-          'Evaluation and calibration for reliable models.',
-          'Drift and data quality checks built in.',
-          'Cost and latency tradeoffs engineered by design.',
+          'Scalable Multi-Agent Systems',
+          'RAG Pipelines with Vector Databases and Tool Integration.',
+          'LLM-Driven Workflow Automation.',
+          'Fine-Tuning and Performance Optimization for Domain-Specific AI Models.',
+          'Dataset Curation and Feature Engineering.',
+          'Python Applications for Business Automation.',
         ],
       });
 
