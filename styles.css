@@ -1174,23 +1174,24 @@ nav {
 .chip-card[data-accent='python'] {
   --accent: var(--cyan);
 }
+.chip-card[data-accent='llm'] {
+  --accent: #f59e0b;
+}
 .chip-card[data-accent='sql'] {
   --accent: #6366f1;
 }
 .chip-card[data-accent='data'] {
   --accent: #0ea5e9;
 }
-.chip-card[data-accent='sklearn'] {
+.chip-card[data-accent='training'] {
   --accent: #f97316;
 }
 .chip-card[data-accent='pytorch'] {
   --accent: #ef4444;
 }
-.chip-card[data-accent='transformers'] {
-  --accent: #f59e0b;
-}
-.chip-card[data-accent='fastapi'] {
-  --accent: #22c55e;
+
+.chip-card[data-accent='utils'] {
+  --accent: #bd8deb;
 }
 .chip-card[data-accent='pydantic'] {
   --accent: #a855f7;
@@ -1204,13 +1205,13 @@ nav {
 .chip-card[data-accent='linuxgit'] {
   --accent: #64748b;
 }
-.chip-card[data-accent='ghactions'] {
+.chip-card[data-accent='ui'] {
   --accent: #94a3b8;
 }
 .chip-card[data-accent='mlflow'] {
   --accent: #3b82f6;
 }
-.chip-card[data-accent='pytest'] {
+.chip-card[data-accent='version-control'] {
   --accent: #10b981;
 }
 
