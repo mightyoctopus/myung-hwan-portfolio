@@ -1,8 +1,8 @@
 # AI Engineer Portfolio
 
-Static portfolio website (HTML/CSS/JS) showcasing production-minded **ML** & **GenAI** projects and dashboards.
+Static portfolio website (HTML/CSS/JS) designed for AI engineering.
 
-**Live:** https://tarekmasryo.github.io/
+**Live:** https://mightyoctopus.github.io/myung-hwan-portfolio/
 
 ---
 
@@ -31,7 +31,7 @@ npm install
 Lint:
 
 ```bash
-npm run lint
+npm run lint 
 ```
 
 Format:
@@ -56,10 +56,6 @@ This repository is configured as a **User GitHub Pages site**:
 2. **Source:** Deploy from a branch
 3. **Branch:** `main`
 4. **Folder:** `/(root)`
-
-The site is served at:
-
-- https://tarekmasryo.github.io/
 
 ---
 
